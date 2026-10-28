@@ -6,7 +6,7 @@
     {
       "name": "team",
       "source": "./plugins/team",
-      "description": "Skills d'équipe : code review par niveau de risque, handoff, tickets, audit de dette technique."
+      "description": "Skills d'équipe : cadrage, challenge, code review, publish, tickets, priorisation, CR, recherche sourcée, decks et front dans la DA, handoff, audit de dette."
     },
     {
       "name": "noodle",
