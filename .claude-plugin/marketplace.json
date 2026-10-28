@@ -1,0 +1,17 @@
+{
+  "name": "team-ai",
+  "owner": { "name": "3-Istor" },
+  "description": "Skills et plugins partagés de l'équipe 3-Istor, pour Claude Code et Codex.",
+  "plugins": [
+    {
+      "name": "team",
+      "source": "./plugins/team",
+      "description": "Skills d'équipe : code review par niveau de risque, handoff, tickets, audit de dette technique."
+    },
+    {
+      "name": "noodle",
+      "source": { "source": "github", "repo": "TheGostsniperfr/Noodle" },
+      "description": "Diagrammes d'architecture en code, avec lint de lisibilité (skill + binaire noodle)."
+    }
+  ]
+}
