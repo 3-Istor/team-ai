@@ -18,6 +18,7 @@ Statuts : `expérimental` (on teste), `stable` (on s'en sert), `déprécié` (à
 | `safe-search` | team | Recherche limitée à la doc 3-Istor et aux domaines autorisés, chaque fait sourcé | agent ou `/team:safe-search` | à désigner | expérimental | 2026-10-28 |
 | `deck` | team | Decks dans la DA 3-Istor : brief, plan validé en titres, profils kick-off, weekly, soutenance | agent ou `/team:deck` | à désigner | expérimental | 2026-10-28 |
 | `design-web` | team | Front aux tokens 3-Istor, composants du projet d'abord, preuve par captures avant « fini » | agent | à désigner | expérimental | 2026-10-28 |
+| `harness-audit` | team | Audit du harnais (AGENTS.md, skills, hooks, permissions, CI) : références mortes, contradictions, règles jamais imposées, skills inutilisés | humain seulement | à désigner | expérimental | 2026-10-28 |
 | `noodle-diagram` | noodle | Diagrammes d'architecture en code avec lint de lisibilité (plugin externe) | agent | Brian | stable | 2026-10-28 |
 
 ## Origine

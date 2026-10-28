@@ -22,7 +22,10 @@ On a guidé un agent **deux fois** sur la même chose :
 ## Entretien
 
 - **Rétro du harnais, 30 min par mois** : quels skills ont servi, lesquels
-  supprimer, quelles erreurs d'agent se sont répétées.
+  supprimer, quelles erreurs d'agent se sont répétées. `/team:harness-audit`
+  prépare la liste.
+- **Veille** : le ticket `veille` du lundi. Une proposition retenue devient une
+  PR ici.
 - **À chaque nouveau modèle** : relire les descriptions et les consignes trop
   détaillées, rejouer les evals, mettre à jour « Revu le » dans le catalogue.
 - Un skill `expérimental` inutilisé depuis un mois passe `déprécié`, puis est
