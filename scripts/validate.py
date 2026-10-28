@@ -18,6 +18,14 @@ LINK_RE = re.compile(r"\]\(([^)#\s]+)(?:#[^)]*)?\)")
 MAX_DESCRIPTION = 1024
 SOFT_MAX_BODY_LINES = 150
 HARD_MAX_BODY_LINES = 500
+# Skills never depend on each other, so a file two skills need is copied into
+# both; each group here must stay byte-identical.
+SHARED_COPIES = [
+    [
+        "plugins/team/skills/deck/references/tokens.md",
+        "plugins/team/skills/design-web/references/tokens.md",
+    ],
+]
 
 errors: list[str] = []
 warnings: list[str] = []
@@ -156,6 +164,14 @@ def main() -> int:
     for skill in all_skills:
         if f"`{skill}`" not in catalog_text:
             err(f"CATALOG.md: skill '{skill}' is not listed (add a row with `{skill}`)")
+
+    for group in SHARED_COPIES:
+        contents = {path: (ROOT / path).read_bytes() for path in group if (ROOT / path).is_file()}
+        missing = [path for path in group if path not in contents]
+        for path in missing:
+            err(f"{path}: missing (shared copy of {group[0]})")
+        if len(set(contents.values())) > 1:
+            err(f"shared copies differ, keep them identical: {', '.join(group)}")
 
     for msg in warnings:
         print(f"warning: {msg}")

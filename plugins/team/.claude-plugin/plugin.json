@@ -1,8 +1,8 @@
 {
   "name": "team",
-  "version": "0.1.0",
-  "description": "Skills d'équipe 3-Istor : code review par niveau de risque, handoff entre sessions, tickets, audit de dette technique.",
+  "version": "0.2.0",
+  "description": "Skills d'équipe 3-Istor : cadrage, challenge, review par niveau de risque, publish, tickets, priorisation, comptes-rendus, recherche sourcée, decks et front dans la DA, handoff, audit de dette.",
   "author": { "name": "3-Istor" },
   "repository": "https://github.com/3-Istor/team-ai",
-  "keywords": ["review", "tickets", "handoff", "audit", "team"]
+  "keywords": ["review", "tickets", "handoff", "audit", "cadrage", "challenge", "publish", "prio", "cr", "search", "deck", "design", "team"]
 }
