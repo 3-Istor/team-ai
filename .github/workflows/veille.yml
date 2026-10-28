@@ -1,0 +1,45 @@
+# Weekly watch on agent tooling: one issue labelled "veille" with what changed
+# for us since the previous one. Read-only on the repo; the only write is that
+# issue. Needs the ANTHROPIC_API_KEY secret, skipped without it.
+name: veille
+
+on:
+  schedule:
+    - cron: "0 7 * * 1"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  issues: write
+  id-token: write
+
+jobs:
+  digest:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - name: Skip when no API key is configured
+        id: key
+        env:
+          KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+        run: echo "present=$([ -n "$KEY" ] && echo true || echo false)" >> "$GITHUB_OUTPUT"
+
+      - uses: actions/checkout@v4
+        if: steps.key.outputs.present == 'true'
+
+      - name: Make sure the label exists
+        if: steps.key.outputs.present == 'true'
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: gh label create veille --color 0E8A16 --description "Digest hebdo de veille" 2>/dev/null || true
+
+      - uses: anthropics/claude-code-action@v1
+        if: steps.key.outputs.present == 'true'
+        with:
+          anthropic_api_key: ${{ secrets.ANTHROPIC_API_KEY }}
+          prompt: |
+            Read veille/PROMPT.md and do what it says.
+          # max-turns caps the spend at a few times a normal run.
+          claude_args: |
+            --max-turns 40
+            --allowedTools "Read,Write,Grep,Glob,WebFetch,Bash(gh issue list:*),Bash(gh issue create:*)"

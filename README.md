@@ -53,11 +53,19 @@ Owner, statut et date de relecture de chaque skill : [CATALOG.md](CATALOG.md).
 | [`deck`](plugins/team/skills/deck/SKILL.md) | agent ou `/team:deck` | Decks dans la DA 3-Istor : brief, plan en titres validé d'abord, profils kick-off, weekly, soutenance |
 | [`design-web`](plugins/team/skills/design-web/SKILL.md) | agent | Front aux tokens 3-Istor, composants du projet d'abord, captures à deux largeurs avant de dire « fini » |
 | [`handoff`](plugins/team/skills/handoff/SKILL.md) | agent ou `/team:handoff` | Met à jour `docs/PROGRESS.md` : fait, en cours, prochaine étape, pièges. Une autre personne ou un autre agent reprend à froid |
+| [`harness-audit`](plugins/team/skills/harness-audit/SKILL.md) | `/team:harness-audit` seulement | Audit mensuel du harnais : références mortes, règles contradictoires ou jamais imposées, skills inutilisés, evals à rejouer. Propose quoi couper, corriger, imposer |
 | [`tech-debt-audit`](plugins/team/skills/tech-debt-audit/SKILL.md) | `/team:tech-debt-audit` seulement | Audit de dette technique et d'architecture du repo entier, findings cités, `TECH_DEBT_AUDIT.md` |
 
 « agent » : Claude ou Codex le charge seul quand la demande correspond à sa
 description. La DA commune à `deck` et `design-web` est dans leurs
 `references/tokens.md` (v0, à valider).
+
+### Veille
+
+Chaque lundi, [`veille.yml`](.github/workflows/veille.yml) lit les
+[sources](veille/sources.md) et ouvre un ticket `veille` : ce qui change pour
+nous, propositions pour team-ai, sources illisibles. Il faut le secret
+`ANTHROPIC_API_KEY` ; sans lui le job est ignoré.
 
 ### Idées en réserve
 
